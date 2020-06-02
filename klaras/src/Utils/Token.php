@@ -22,7 +22,7 @@ class Token
         ]);
 
         curl_setopt_array($curl, array(
-            CURLOPT_URL => "http://app.klaras.id/api/v1/login",
+            CURLOPT_URL => "https://slims.web.id/messenger/api/v1/login",
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => "",
             CURLOPT_MAXREDIRS => 10,

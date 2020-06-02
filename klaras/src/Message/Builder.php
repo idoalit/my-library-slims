@@ -127,7 +127,7 @@ class Builder
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-            CURLOPT_URL => "http://app.klaras.id/api/v1/send",
+            CURLOPT_URL => "https://slims.web.id/messenger/api/v1/send",
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => "",
             CURLOPT_MAXREDIRS => 10,
