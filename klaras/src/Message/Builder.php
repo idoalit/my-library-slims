@@ -146,15 +146,14 @@ class Builder
         ));
 
         $response = curl_exec($curl);
-        var_dump($response);
         $err = curl_error($curl);
 
         curl_close($curl);
 
         if ($err) {
-            return false;
+            return ['status' => false, 'message' => $err];
         } else {
-            return true;
+            return json_decode($response, true);
         }
     }
 }
