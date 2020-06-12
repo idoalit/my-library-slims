@@ -90,7 +90,7 @@ if (isset($_POST['finish'])) {
             // send message
             require_once LIB . 'klaras/autoload.php';
             $send_receipt = \Klaras\Message\Builder::init()->setType('receipt')->receiptFromSession()->send();
-            if ($send_receipt['status']) {
+            if (isset($send_receipt['status']) && $send_receipt['status']) {
                 utility::jsToastr('Message', 'Receipt transaction sent', 'success');
             } else {
                 utility::jsToastr('Message', 'FAILED send receipt transaction. ' . $send_receipt['message'], 'error');

@@ -14,6 +14,7 @@ class Builder
 {
     protected $data;
     protected $type;
+    private $send_count = 0;
 
     static function init()
     {
@@ -146,14 +147,23 @@ class Builder
         ));
 
         $response = curl_exec($curl);
+        $response = json_decode($response, true);
         $err = curl_error($curl);
 
         curl_close($curl);
 
-        if ($err) {
-            return ['status' => false, 'message' => $err];
+        if ($err || (isset($response['message']) && $response['message'] === 'Unauthenticated.')) {
+            if ($this->send_count < 1) {
+                $this->send_count++;
+                // re-login
+                Token::login();
+                // resend
+                return $this->send();
+            } else {
+                return ['status' => false, 'message' => $err];
+            }
         } else {
-            return json_decode($response, true);
+            return $response;
         }
     }
 }
