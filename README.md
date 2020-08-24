@@ -13,7 +13,7 @@ Memberikan notifikasi jatuh tempo pengembalian koleksi, struk transaksi, melakuk
 4. Pindahkan folder `messenger` ke dalam folder `{ROOT_FOLDER_SLiMS}/api/`
 5. Pindahkan berkas `circulation_action.php` dan `circulation_base_lib.inc.php` ke dalam folder `{ROOT_FOLDER_SLiMS}/admin/modules/circulation/`  
    _*)Lakukan backup terlebih dahulu sebelum memindahkan berkas tersebut_
-6. Tambahkan konfigurasi berikut pada berkas `{ROOT_FOLDER_SLiMS}/config/sysconfi.local.inc.php`  
+6. Tambahkan konfigurasi berikut pada berkas `{ROOT_FOLDER_SLiMS}/config/sysconfig.local.inc.php`  
 ```
 // set false untuk menonaktifkan my library
 $sysconf['my_library']['enable']   = true;
